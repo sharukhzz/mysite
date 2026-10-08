@@ -1,0 +1,16 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets and local config - never commit these
+.env
+wp-config.php
+*.sql
+*.zip
+
+# Dependencies and logs
+node_modules/
+vendor/
+*.log
