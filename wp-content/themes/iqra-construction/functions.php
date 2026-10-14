@@ -11,8 +11,8 @@ function iqra_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'custom-logo', array(
-		'height'      => 48,
-		'width'       => 180,
+		'height'      => 60,
+		'width'       => 320,
 		'flex-height' => true,
 		'flex-width'  => true,
 	) );
@@ -49,8 +49,8 @@ function iqra_fallback_primary_menu( $menu_class = '' ) {
  * Keep the Customizer logo compact in the header (not full-resolution).
  */
 add_filter( 'get_custom_logo_image_attributes', function ( $attr ) {
-	$attr['width']  = 180;
-	$attr['height'] = 40;
+	$attr['width']  = null;
+	$attr['height'] = 60;
 	$attr['class']  = trim( ( $attr['class'] ?? '' ) . ' custom-logo' );
 	return $attr;
 } );

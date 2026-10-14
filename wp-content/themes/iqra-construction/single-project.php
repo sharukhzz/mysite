@@ -6,8 +6,6 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 	$location = get_post_meta( get_the_ID(), '_iqra_location', true );
-	$status   = get_post_meta( get_the_ID(), '_iqra_status', true );
-	$year     = get_post_meta( get_the_ID(), '_iqra_year', true );
 	$duration = get_post_meta( get_the_ID(), '_iqra_duration', true );
 	$terms    = get_the_terms( get_the_ID(), 'project_category' );
 	?>
@@ -19,7 +17,7 @@ while ( have_posts() ) :
 				<?php endif; ?>
 				<h1><?php the_title(); ?></h1>
 				<?php if ( $location ) : ?>
-					<p><?php echo esc_html( $location ); ?><?php echo $status ? ' · ' . esc_html( $status ) : ''; ?></p>
+					<p><?php echo esc_html( $location ); ?></p>
 				<?php endif; ?>
 			</div>
 		</section>
@@ -39,8 +37,6 @@ while ( have_posts() ) :
 					<dl>
 						<?php if ( $location ) : ?><dt>Location</dt><dd><?php echo esc_html( $location ); ?></dd><?php endif; ?>
 						<?php if ( $terms && ! is_wp_error( $terms ) ) : ?><dt>Category</dt><dd><?php echo esc_html( $terms[0]->name ); ?></dd><?php endif; ?>
-						<?php if ( $status ) : ?><dt>Status</dt><dd><?php echo esc_html( $status ); ?></dd><?php endif; ?>
-						<?php if ( $year ) : ?><dt>Completion year</dt><dd><?php echo esc_html( $year ); ?></dd><?php endif; ?>
 						<?php if ( $duration ) : ?><dt>Duration</dt><dd><?php echo esc_html( $duration ); ?></dd><?php endif; ?>
 					</dl>
 					<a href="<?php echo esc_url( home_url( '/request-a-quote/' ) ); ?>" class="btn btn--primary" style="width:100%;">Start a Similar Project</a>

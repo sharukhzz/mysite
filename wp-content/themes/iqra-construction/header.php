@@ -23,8 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php the_custom_logo(); ?>
 			</div>
 		<?php else : ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-header__logo">
-				IQRA <span>Construction</span>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-header__logo site-header__logo--image">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/iqra-construction-logo.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 			</a>
 		<?php endif; ?>
 

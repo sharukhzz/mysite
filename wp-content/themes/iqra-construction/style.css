@@ -206,22 +206,22 @@ p { margin: 0 0 var(--s3); }
 }
 .site-header__logo span { color: var(--color-accent-dark); }
 .site-header__logo--image {
-  max-width: 180px;
+  max-width: none;
 }
 .site-header__logo .custom-logo-link {
   display: inline-flex;
   align-items: center;
   line-height: 0;
-  max-width: 180px;
+  max-width: none;
 }
 .site-header__logo .custom-logo-link img,
 .site-header__logo img.custom-logo,
 .site-header__logo img {
   display: block;
-  height: 40px !important;
+  height: 60px !important;
   width: auto !important;
-  max-height: 40px !important;
-  max-width: 180px !important;
+  max-height: 60px !important;
+  max-width: none !important;
   object-fit: contain;
 }
 

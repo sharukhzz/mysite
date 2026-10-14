@@ -52,9 +52,9 @@ function iqra_seed_project_categories() {
 add_action( 'after_switch_theme', 'iqra_seed_project_categories' );
 
 /**
- * Project details meta box: Location, Status, Year, Duration.
+ * Project details meta box: Location, Duration.
  * Hand-coded instead of ACF — keeps the plugin count down since these are
- * only four simple fields.
+ * only two simple fields.
  */
 function iqra_add_project_meta_box() {
 	add_meta_box(
@@ -72,25 +72,11 @@ function iqra_render_project_meta_box( $post ) {
 	wp_nonce_field( 'iqra_save_project_meta', 'iqra_project_meta_nonce' );
 
 	$location = get_post_meta( $post->ID, '_iqra_location', true );
-	$status   = get_post_meta( $post->ID, '_iqra_status', true );
-	$year     = get_post_meta( $post->ID, '_iqra_year', true );
 	$duration = get_post_meta( $post->ID, '_iqra_duration', true );
 	?>
 	<p>
 		<label for="iqra_location"><strong>Location</strong></label><br>
 		<input type="text" id="iqra_location" name="iqra_location" value="<?php echo esc_attr( $location ); ?>" class="widefat" placeholder="e.g. Riverside, City">
-	</p>
-	<p>
-		<label for="iqra_status"><strong>Status</strong></label><br>
-		<select id="iqra_status" name="iqra_status" class="widefat">
-			<?php foreach ( array( 'Completed', 'Ongoing', 'Upcoming' ) as $option ) : ?>
-				<option value="<?php echo esc_attr( $option ); ?>" <?php selected( $status, $option ); ?>><?php echo esc_html( $option ); ?></option>
-			<?php endforeach; ?>
-		</select>
-	</p>
-	<p>
-		<label for="iqra_year"><strong>Completion Year</strong></label><br>
-		<input type="text" id="iqra_year" name="iqra_year" value="<?php echo esc_attr( $year ); ?>" class="widefat" placeholder="e.g. 2025">
 	</p>
 	<p>
 		<label for="iqra_duration"><strong>Duration</strong></label><br>
@@ -110,7 +96,7 @@ function iqra_save_project_meta( $post_id ) {
 		return;
 	}
 
-	$fields = array( 'iqra_location' => '_iqra_location', 'iqra_status' => '_iqra_status', 'iqra_year' => '_iqra_year', 'iqra_duration' => '_iqra_duration' );
+	$fields = array( 'iqra_location' => '_iqra_location', 'iqra_duration' => '_iqra_duration' );
 	foreach ( $fields as $input_name => $meta_key ) {
 		if ( isset( $_POST[ $input_name ] ) ) {
 			update_post_meta( $post_id, $meta_key, sanitize_text_field( wp_unslash( $_POST[ $input_name ] ) ) );

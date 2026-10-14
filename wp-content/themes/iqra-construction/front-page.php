@@ -111,10 +111,8 @@ get_header();
 							</div>
 							<div class="project-card__body">
 								<?php
-								$status   = get_post_meta( get_the_ID(), '_iqra_status', true );
 								$location = get_post_meta( get_the_ID(), '_iqra_location', true );
 								?>
-								<?php if ( $status ) : ?><span class="project-card__meta"><?php echo esc_html( $status ); ?></span><?php endif; ?>
 								<h3><?php the_title(); ?></h3>
 								<?php if ( $location ) : ?><p><?php echo esc_html( $location ); ?></p><?php endif; ?>
 								<?php if ( has_excerpt() ) : ?><p class="project-card__excerpt"><?php echo esc_html( get_the_excerpt() ); ?></p><?php endif; ?>	
